@@ -2,9 +2,9 @@
   "name": "capacitacao-backend-compjunior",
   "version": "1.0.0",
   "description": "Projeto de capacitacao backend da compjunior",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "nodemon --exec babel-node ./src/index.js" 
   },
   "repository": {
     "type": "git",
