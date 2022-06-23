@@ -4,7 +4,7 @@
   "description": "Projeto de capacitacao backend da compjunior",
   "main": "./src/index.js",
   "scripts": {
-    "serve": "nodemon --exec babel-node ./src/index.js" 
+    "serve": "nodemon --exec babel-node ./src/index.js"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,8 @@
     "express": "^4.18.1",
     "fs": "^0.0.1-security",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.4.0"
+    "mongoose": "^6.4.0",
+    "swagger-ui-express": "^4.4.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",

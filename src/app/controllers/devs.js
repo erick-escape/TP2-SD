@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
 });
 
 //gets one specific dev
-router.get('/:devCpf', (req, res) => {
+router.get('/:devCpf', (req, res) => { // I don't know if this is secure, probably not, cause my client's cpf is on the url. I could do this if the id, but I've wanted to do something different
 
     devs.findOne({cpf: req.params.devCpf})
         .then(dev => {
@@ -36,6 +36,8 @@ router.get('/:devCpf', (req, res) => {
         })
 });
 
+
+//Create a new dev
 router.post('/', (req, res) => {
 
     const { cpf, name, email, password, cellPhone, birthDate } = req.body;
@@ -50,6 +52,7 @@ router.post('/', (req, res) => {
         })
 });
 
+//Update dev by id
 router.put('/:devId', (req, res) => {
 
     const { cpf, name, email, password, cellPhone, birthDate } = req.body;
@@ -64,6 +67,7 @@ router.put('/:devId', (req, res) => {
         })
 });
 
+//Delete dev by id
 router.delete('/:devId', (req, res) => {
     devs.findByIdAndRemove(req.params.devId)
         .then(() => {

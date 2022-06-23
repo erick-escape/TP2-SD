@@ -1,0 +1,225 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API documentation for backend training from CompJunior!",
+        "description": "This API has a goal of creating a big database full of devs from all around the world",
+        "termsOfService":  "http://localhost:3000/terms",
+        "contact": {
+            "email": "erick.silva@compjunior.com.br"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000/",
+            "description": "API test"
+        }
+    ],
+    "paths": {
+        "/devs": {
+            "post": {
+                "summary": "Creating Devs",
+                "description": "Create a new dev",
+                "tags": ["Devs"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/user/schemas/Dev"
+                            },
+                            "examples": {
+                                "dev": {
+                                    "value": {
+                                        "cpf": "09871233201",
+                                        "name": "Jose Almeida",
+                                        "email": "jose@almeida.com.br",
+                                        "password": "P@assw0rd",
+                                        "cellPhone": "011987654321",
+                                        "birthDate": "2001/09/25"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "200": {
+                        "description": "dev created sucessfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/user/schemas/Dev" 
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "summary": "Reading all devs from the database",
+                "description": "Reading all devs from the database",
+                "tags": ["Devs"],
+                "responses": {
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "200": {
+                        "description": "devs read sucessfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/user/schemas/Dev" 
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/devs/{cpf}": {
+            "get": {
+                "summary": "Getting dev by cpf",
+                "description": "This is the get dev by cpf",
+                "tags": ["Devs"],
+                "parameters": [
+                    {
+                        "name": "cpf",
+                        "in": "path",
+                        "description": "Getting dev by cpf from the path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "200": {
+                        "description": "dev read sucessfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/user/schemas/Dev" 
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/devs/{id}": {
+            "put": {
+                "summary": "Updating dev by id",
+                "description": "This is the update dev by id",
+                "tags": ["Devs"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Updating dev by id from the path",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/user/schemas/Dev"
+                            },
+                            "examples": {
+                                "dev": {
+                                    "value": {
+                                        "name": "Jose Almeida",
+                                        "email": "jose@almeida.com.br",
+                                        "password": "P@assw0rd",
+                                        "cellPhone": "011987654321"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "200": {
+                        "description": "dev updated sucessfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/user/schemas/Dev" 
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Deleting dev by id",
+                "description": "This is the delete dev by id",
+                "tags": ["Devs"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Deleting dev by id from the path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "200": {
+                        "description": "dev deleted sucessfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/user/schemas/Dev" 
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "user": {
+        "schemas": {
+            "Dev": {
+                "type": "object",
+                "properties": {
+                    "cpf": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string",
+                        "format": "email"
+                    },
+                    "password": {
+                        "type": "string",
+                        "format": "password"
+                    },
+                    "cellPhone": {
+                        "type": "string"
+                    },
+                    "birthDate": {
+                        "type": "string",
+                        "format": "date"
+                    }
+                }
+            }
+        }
+    }
+}
