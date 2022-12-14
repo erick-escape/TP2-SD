@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-mongoose.connect('mongodb://localhost/devjobs', {
+mongoose.connect('mongodb://localhost/tasks', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });

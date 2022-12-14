@@ -1,3 +1,3 @@
-import devs from './devs';
+import tasks from './tasks';
 
-export { devs };
+export { tasks };
