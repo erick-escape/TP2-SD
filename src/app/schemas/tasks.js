@@ -9,9 +9,9 @@ const tasksSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
-  done: {
-    type: String,
-    default: 0,
+  complete: {
+    type: Boolean,
+    //default: 0,
   },
 });
 

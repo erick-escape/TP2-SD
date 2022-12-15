@@ -1,4 +1,4 @@
-import express, { Router } from 'express';
+import express from 'express';
 import bodyParser from 'body-parser';
 import { tasks } from '@/app/controllers';
 
@@ -8,7 +8,7 @@ const port = 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use('/tasks', tasks);
+app.use('/', tasks);
 
 console.log(`Server running on the link http://localhost:${port}`);
 app.listen(port);
