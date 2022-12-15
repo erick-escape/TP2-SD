@@ -1,6 +1,6 @@
 import mongoose from '@/database';
 
-const tasks = new mongoose.Schema({
+const tasksSchema = new mongoose.Schema({
   id: {
     type: Number,
     unique: true,
