@@ -1,11 +1,6 @@
 import mongoose from '@/database';
 
 const tasksSchema = new mongoose.Schema({
-  id: {
-    type: Number,
-    unique: true,
-    required: true,
-  },
   description: {
     type: String,
     required: true,
