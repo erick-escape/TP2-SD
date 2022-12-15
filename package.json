@@ -1,7 +1,7 @@
 {
-  "name": "capacitacao-backend-compjunior",
+  "name": "tp2-sd",
   "version": "1.0.0",
-  "description": "Projeto de capacitacao backend da compjunior",
+  "description": "Projeto da disciplina Sistemas Distribuídos",
   "main": "./src/index.js",
   "scripts": {
     "serve": "nodemon --exec babel-node ./src/index.js"
