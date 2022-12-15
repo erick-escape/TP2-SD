@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/erick-escape/capacitacao-backend-compjunior.git"
+    "url": "git+https://github.com/erick-escape/tp2-sd.git"
   },
   "author": "Érick",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/erick-escape/capacitacao-backend-compjunior/issues"
+    "url": "https://github.com/erick-escape/tp2-sd/issues"
   },
-  "homepage": "https://github.com/erick-escape/capacitacao-backend-compjunior#readme",
+  "homepage": "https://github.com/erick-escape/tp2-sd#readme",
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "bcryptjs": "^2.4.3",
