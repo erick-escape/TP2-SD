@@ -1,9 +1,6 @@
 import mongoose from 'mongoose';
 
-mongoose.connect('mongodb://localhost/tasks', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect('mongodb://127.0.0.1/tasks');
 
 mongoose.Promise = global.Promise;
 

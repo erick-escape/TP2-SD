@@ -3,7 +3,7 @@ import tasks from '@/app/schemas/tasks';
 
 const router = new Router();
 
-//get all tasks
+//getTasks
 router.get('/', (req, res) => {
   tasks
     .find()
@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
         return {
           description: task.description,
           deadline: task.deadline,
-          done: task.done,
+          complete: task.complete,
         };
       });
       res.send(tasks);
@@ -25,10 +25,10 @@ router.get('/', (req, res) => {
     });
 });
 
-//get one specific task
+//getTaskById
 router.get('/:taskId', (req, res) => {
   tasks
-    .findOne({ id: req.params.taskId })
+    .findOne({ _id: req.params.taskId })
     .then((task) => {
       res.send(task);
     })
@@ -40,12 +40,12 @@ router.get('/:taskId', (req, res) => {
     });
 });
 
-//Create a new task
+//createTask
 router.post('/', (req, res) => {
-  const { description, deadline, done } = req.body;
+  const { description, deadline, complete } = req.body;
 
   tasks
-    .create({ description, deadline, done })
+    .create({ description, deadline, complete })
     .then((task) => {
       res.status(200).send(task);
     })
@@ -58,14 +58,14 @@ router.post('/', (req, res) => {
     });
 });
 
-//Update task by id
+//updateTaskById
 router.put('/:taskId', (req, res) => {
-  const { description, deadline, done } = req.body;
+  const { description, deadline, complete } = req.body;
 
   tasks
     .findByIdAndUpdate(
       req.params.taskId,
-      { description, deadline, done },
+      { description, deadline, complete },
       { new: true },
     )
     .then((task) => {
@@ -80,7 +80,7 @@ router.put('/:taskId', (req, res) => {
     });
 });
 
-//Delete task by id
+//deleteTaskById
 router.delete('/:taskId', (req, res) => {
   tasks
     .findByIdAndRemove(req.params.taskId)
