@@ -4,7 +4,7 @@ import tasks from '@/app/schemas/tasks';
 const router = new Router();
 
 //getTasks
-router.get('/', (req, res) => {
+router.get('/tasks', (req, res) => {
   tasks
     .find()
     .then((data) => {
@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
 });
 
 //getTaskById
-router.get('/:taskId', (req, res) => {
+router.get('/tasks/:taskId', (req, res) => {
   tasks
     .findOne({ _id: req.params.taskId })
     .then((task) => {
@@ -41,7 +41,7 @@ router.get('/:taskId', (req, res) => {
 });
 
 //createTask
-router.post('/', (req, res) => {
+router.post('/tasks', (req, res) => {
   const { description, deadline, complete } = req.body;
 
   tasks
@@ -59,7 +59,7 @@ router.post('/', (req, res) => {
 });
 
 //updateTaskById
-router.put('/:taskId', (req, res) => {
+router.put('/tasks/:taskId', (req, res) => {
   const { description, deadline, complete } = req.body;
 
   tasks
@@ -81,7 +81,7 @@ router.put('/:taskId', (req, res) => {
 });
 
 //deleteTaskById
-router.delete('/:taskId', (req, res) => {
+router.delete('/tasks/:taskId', (req, res) => {
   tasks
     .findByIdAndRemove(req.params.taskId)
     .then(() => {
